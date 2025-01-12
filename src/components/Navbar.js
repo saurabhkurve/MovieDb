@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#343A3F] p-4">
+    <nav className="bg-[#343A3F] p-4 w-full">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <NavLink to="/" className="text-white text-lg font-bold ml-4 md:ml-14">MovieDB</NavLink>

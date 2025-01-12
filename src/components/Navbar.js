@@ -12,8 +12,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#343A3F] p-4 w-full">
-      <div className="container mx-auto flex justify-between items-center">
+    <nav className="bg-[#343A3F] p-4 w-full fixed top-0 left-0 z-50">
+      <div className="max-w-screen-xl mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <NavLink to="/" className="text-white text-lg font-bold ml-4 md:ml-14">MovieDB</NavLink>
         </div>
@@ -78,7 +78,7 @@ const Navbar = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden bg-[#343A3F] p-4">
           <NavLink
             to="/"
             className={({ isActive }) =>

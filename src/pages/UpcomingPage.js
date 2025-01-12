@@ -26,49 +26,35 @@ const UpcomingPage = () => {
     fetchUpcomingMovies();
   }, [page]);
 
-  const handleMovieClick = (id) => {
-    navigate(`/movie/${id}`);
-  };
-
-  const handleNextPage = () => {
-    setPage((prevPage) => prevPage + 1);
-  };
-
-  const handlePreviousPage = () => {
-    setPage((prevPage) => (prevPage > 1 ? prevPage - 1 : 1));
-  };
-
   return (
     <div className="container mx-auto p-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center mt-2">
-        {movies?.map((movie) => (
-          <div
-            key={movie.id}
-            className="cursor-pointer flex flex-col items-center mb-10"
-            onClick={() => handleMovieClick(movie?.id)}
-            style={{ width: '10rem', height: '16rem' }}
-          >
+      <h1 className="text-3xl font-bold text-white mb-4 text-center">Upcoming Movies</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 justify-items-center">
+        {movies.map((movie) => (
+          <div key={movie.id} className="relative w-full max-w-xs">
             <img
-              src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
-              alt={movie?.title}
-              className="w-full h-full object-cover rounded-lg mb-2"
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title}
+              className="w-full h-auto rounded-lg"
+              onClick={() => navigate(`/movie/${movie.id}`)}
             />
-            <div className="text-center mt-2">
-              <h2 className="text-xs font-bold text-white">{movie?.title}</h2>
-              <p className="text-xs font-bold text-gray-400">Rating: {movie?.vote_average?.toFixed(1)}</p>
+            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">
+              <h2 className="text-sm font-bold">{movie.title}</h2>
             </div>
           </div>
         ))}
       </div>
-      <div className="flex justify-between mt-4">
+      <div className="flex justify-center mt-8">
         <button
-          onClick={handlePreviousPage}
-          className="bg-blue-500 text-white p-2 rounded"
-          disabled={page === 1}
+          className="bg-blue-500 text-white px-4 py-2 rounded mr-2"
+          onClick={() => setPage((prevPage) => Math.max(prevPage - 1, 1))}
         >
           Previous
         </button>
-        <button onClick={handleNextPage} className="bg-blue-500 text-white p-2 rounded">
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+          onClick={() => setPage((prevPage) => prevPage + 1)}
+        >
           Next
         </button>
       </div>

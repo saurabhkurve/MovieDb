@@ -48,8 +48,8 @@ const MoviesDetailPage = () => {
 
   return (
     <div className="container mx-auto p-4 mt-8">
-      <div className="flex flex-col md:flex-row justify-center items-center md:items-start">
-        <div className="relative rounded-lg overflow-hidden w-full md:w-3/4 lg:w-2/3 xl:w-1/2">
+      <div className="flex flex-col md:flex-row justify-center items-center md:items-start mt-10">
+        <div className="relative rounded-lg overflow-hidden w-full" style={{ maxWidth: '90vw' }}>
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/2 bg-[#010A17] p-6 flex flex-col justify-between">
               <div className="flex flex-col md:flex-row">

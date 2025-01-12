@@ -11,11 +11,15 @@ const Navbar = () => {
     navigate(`/search?query=${query}`);
   };
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <nav className="bg-[#343A3F] p-4 w-full fixed top-0 left-0 z-50">
+    <nav className="bg-[#343A3F] p-2 md:p-4 w-full fixed top-0 left-0 z-50">
       <div className="max-w-screen-xl mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <NavLink to="/" className="text-white text-lg font-bold ml-4 md:ml-14">MovieDB</NavLink>
+          <NavLink to="/" className="text-white text-lg font-bold ml-2 md:ml-14">MovieDB</NavLink>
         </div>
         <div className="flex items-center">
           <div className="hidden md:flex space-x-4">
@@ -44,20 +48,20 @@ const Navbar = () => {
               Upcoming
             </NavLink>
           </div>
-          <form onSubmit={handleSearch} className="flex ml-4">
+          <form onSubmit={handleSearch} className="flex ml-2 md:ml-4">
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="p-1 md:p-2 rounded-l text-black"
+              className="p-1 md:p-2 rounded-l text-black text-sm md:text-base"
               placeholder="Movie Name"
             />
-            <button type="submit" className="bg-[#6C747D] text-white p-1 md:p-2 rounded ml-1 md:ml-2">
+            <button type="submit" className="bg-[#6C747D] text-white p-1 md:p-2 rounded ml-1 md:ml-2 text-sm md:text-base">
               Search
             </button>
           </form>
           <button
-            className="md:hidden text-white ml-4"
+            className="md:hidden text-white ml-2 md:ml-4"
             onClick={() => setIsOpen(!isOpen)}
           >
             <svg
@@ -78,12 +82,13 @@ const Navbar = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden bg-[#343A3F] p-4">
+        <div className="md:hidden bg-[#343A3F] p-4 flex justify-center items-center flex-col">
           <NavLink
             to="/"
             className={({ isActive }) =>
               isActive ? 'block text-white text-lg p-2' : 'block text-[#606569] text-lg p-2'
             }
+            onClick={handleLinkClick}
           >
             Popular Movies
           </NavLink>
@@ -92,6 +97,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive ? 'block text-white text-lg p-2' : 'block text-[#606569] text-lg p-2'
             }
+            onClick={handleLinkClick}
           >
             Top Rated
           </NavLink>
@@ -100,6 +106,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive ? 'block text-white text-lg p-2' : 'block text-[#606569] text-lg p-2'
             }
+            onClick={handleLinkClick}
           >
             Upcoming
           </NavLink>

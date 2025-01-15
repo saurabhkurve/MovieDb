@@ -8,9 +8,9 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchPopularMovies = async () => {
+    const fetchPopularMovies = async () => { 
       try {
-        const response = await axios.get('https://api.themoviedb.org/3/movie/popular', {
+        const response = await axios.get('https://api.themoviedb.org/3/movie/popular', { 
           params: {
             api_key: 'c45a857c193f6302f2b5061c3b85e743',
             language: 'en-US',
@@ -23,7 +23,7 @@ const HomePage = () => {
       }
     };
 
-    fetchPopularMovies();
+    fetchPopularMovies(); 
   }, [page]);
 
   const handleMovieClick = (id) => {

@@ -8,11 +8,11 @@ const Navbar = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate(`/search?query=${query}`);
+    navigate(`/search?query=${query}`); 
   };
 
   const handleLinkClick = () => {
-    setIsOpen(false);
+    setIsOpen(false); 
   };
 
   return (
